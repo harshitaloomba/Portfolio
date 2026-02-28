@@ -1,0 +1,23 @@
+RESUME SETUP INSTRUCTIONS
+=========================
+
+To enable resume downloads on your portfolio:
+
+1. Create or export your resume as a PDF file
+2. Name it exactly: resume.pdf
+3. Place it in this folder (Portfolio/public/)
+4. Delete this RESUME_PLACEHOLDER.txt file
+
+Your resume will then be downloadable at:
+- Button on homepage: "Download Resume"
+- Direct URL: yoursite.com/api/resume
+
+For detailed instructions, see: HOW_TO_ADD_RESUME.md
+
+File requirements:
+- Format: PDF
+- Filename: resume.pdf (exactly, case-sensitive)
+- Size: Under 2MB recommended
+- Location: Portfolio/public/resume.pdf
+
+Once you add your resume.pdf file, the download feature will work automatically!
