@@ -1,5 +1,5 @@
 import { achievements } from "@/lib/data";
-import { Award, ExternalLink, Code2, Trophy, CheckCircle2 } from "lucide-react";
+import { Award, ExternalLink, Code2, Cloud, CheckCircle2 } from "lucide-react";
 
 export function Achievements() {
   return (
@@ -9,14 +9,14 @@ export function Achievements() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
           <div>
             <p className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400 mb-2">
-              Recognition
+              Credentials & Recognition
             </p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
-              Certifications & Honors
+              Certifications & Achievements
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-muted-foreground max-w-md">
-            Verified industry simulations, technical certifications, and university awards.
+            Industry simulation credentials, cloud certifications, and technical specializations.
           </p>
         </div>
 
@@ -43,13 +43,13 @@ export function Achievements() {
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-10 h-10 rounded-xl bg-secondary/70 border border-border/80 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      {item.icon === "aws" && <Cloud className="text-amber-400" size={18} />}
                       {item.icon === "deloitte" && (
                         <span className="font-extrabold text-foreground text-xs font-mono">
                           D<span className="text-[#86BC25]">.</span>
                         </span>
                       )}
                       {item.icon === "code" && <Code2 className="text-sky-400" size={18} />}
-                      {item.icon === "trophy" && <Trophy className="text-amber-400" size={18} />}
                     </div>
 
                     <span className="px-2.5 py-0.5 text-[11px] font-mono rounded-full bg-secondary/80 text-muted-foreground border border-border/60">

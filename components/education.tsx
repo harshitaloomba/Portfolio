@@ -1,14 +1,14 @@
 import { education } from "@/lib/data";
-import { GraduationCap, BookOpen, Award } from "lucide-react";
+import { BookOpen } from "lucide-react";
 
 export function Education() {
   const edu = education[0];
   const courses = [
     "Data Structures & Algorithms",
     "Artificial Intelligence",
-    "Machine Learning",
     "Database Management Systems",
-    "Finance Accounting & Valuation",
+    "Object Oriented Programming",
+    "Operating Systems",
   ];
 
   return (
@@ -49,7 +49,7 @@ export function Education() {
 
           <div className="pt-6">
             <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-3">
-              <BookOpen size={14} className="text-sky-400" /> Key Coursework & Specializations:
+              <BookOpen size={14} className="text-sky-400" /> Relevant Coursework:
             </div>
             <div className="flex flex-wrap gap-2">
               {courses.map((course, idx) => (

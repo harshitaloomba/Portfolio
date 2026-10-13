@@ -1,7 +1,7 @@
 "use client";
 
 import { profileData } from "@/lib/data";
-import { Mail, Github, Linkedin, ArrowUp } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUp, Code2, ExternalLink } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,7 +26,7 @@ export function Footer() {
             </div>
 
             <p className="text-xs text-muted-foreground max-w-sm leading-relaxed">
-              Computer Engineering undergraduate focusing on Computer Vision architectures, data-driven systems, and modern web platforms.
+              Computer Engineering student at Thapar Institute specializing in distributed microservices, predictive machine learning, and cloud deployment pipelines.
             </p>
 
             <div className="flex gap-2.5 pt-1">
@@ -48,6 +48,17 @@ export function Footer() {
               >
                 <Linkedin size={15} />
               </a>
+              {profileData.contact.leetcode && (
+                <a
+                  href={profileData.contact.leetcode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-xl bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/60 hover:border-sky-500/40 transition-all"
+                  aria-label="LeetCode Profile"
+                >
+                  <Code2 size={15} />
+                </a>
+              )}
               <a
                 href={`mailto:${profileData.contact.email}`}
                 className="p-2 rounded-xl bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/60 hover:border-sky-500/40 transition-all"
@@ -76,17 +87,17 @@ export function Footer() {
               </li>
               <li>
                 <a href="#projects" className="hover:text-foreground transition-colors">
-                  Case Studies
+                  Systems & Projects
                 </a>
               </li>
               <li>
                 <a href="#skills" className="hover:text-foreground transition-colors">
-                  Tech Stack
+                  Technical Stack
                 </a>
               </li>
               <li>
                 <a href="#experience" className="hover:text-foreground transition-colors">
-                  Experience
+                  Experience & Leadership
                 </a>
               </li>
             </ul>
@@ -96,17 +107,17 @@ export function Footer() {
           <div className="flex flex-col justify-between">
             <div>
               <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground mb-3">
-                Quick Actions
+                Verified Credentials
               </h4>
               <ul className="space-y-2 text-xs">
                 <li>
                   <a
-                    href="/api/resume"
+                    href="https://www.credly.com/badges/454264c4-4c69-474b-ba5e-5cd67861e089"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sky-400 hover:underline"
+                    className="text-sky-400 hover:underline flex items-center gap-1"
                   >
-                    Download Resume (PDF)
+                    AWS Generative AI <ExternalLink size={10} />
                   </a>
                 </li>
                 <li>
@@ -114,9 +125,19 @@ export function Footer() {
                     href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_q8p7KrRxWCuCfAoaa_1753806895241_completion_certificate.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors flex items-center gap-1"
+                  >
+                    Deloitte Australia Certificate <ExternalLink size={10} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/api/resume"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors"
                   >
-                    Deloitte Credential
+                    Download Resume (PDF)
                   </a>
                 </li>
               </ul>

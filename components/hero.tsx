@@ -1,5 +1,5 @@
 import { profileData } from "@/lib/data";
-import { Mail, Github, Linkedin, ArrowDown, MapPin, Sparkles } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowDown, MapPin, Sparkles, Code2 } from "lucide-react";
 import Image from "next/image";
 
 export function Hero() {
@@ -23,14 +23,14 @@ export function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-6">
               Engineering{" "}
               <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-                Computer Vision
+                Distributed Systems
               </span>{" "}
-              & Data-Driven Systems.
+              & Data Pipelines.
             </h1>
 
             {/* Bio summary */}
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              I&apos;m <span className="font-semibold text-foreground">{profileData.name}</span>, a Computer Engineering student at Thapar Institute. I develop real-time vision pipelines, analyze multi-year operational datasets, and deploy performant web applications.
+              I&apos;m <span className="font-semibold text-foreground">{profileData.name}</span>, a Computer Engineering student at Thapar Institute and Software Development Intern at <span className="font-semibold text-foreground">PSPCL</span>. I architect microservices platforms serving 10,000+ residents, build predictive ML pipelines, and optimize power grid distribution telemetry.
             </p>
 
             {/* Meta Tags Strip */}
@@ -42,7 +42,7 @@ export function Hero() {
                 <Sparkles size={12} className="text-sky-400" /> TIET Class of 2027
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-secondary/60 border border-border/80">
-                CGPA 8.21 / 10
+                CGPA 8.1 / 10
               </span>
             </div>
 
@@ -62,7 +62,7 @@ export function Hero() {
                 <Mail size={14} className="text-sky-400" /> Get in Touch
               </a>
 
-              {/* Socials */}
+              {/* Socials including LeetCode */}
               <div className="flex items-center gap-2 ml-1">
                 <a
                   href={profileData.contact.github}
@@ -82,6 +82,17 @@ export function Hero() {
                 >
                   <Linkedin size={16} />
                 </a>
+                {profileData.contact.leetcode && (
+                  <a
+                    href={profileData.contact.leetcode}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-xl bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/60 hover:border-sky-500/30 transition-all"
+                    aria-label="LeetCode Profile"
+                  >
+                    <Code2 size={16} />
+                  </a>
+                )}
               </div>
             </div>
           </div>
