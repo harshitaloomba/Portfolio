@@ -1,10 +1,27 @@
 import { NextResponse } from 'next/server';
-import { readFile } from 'fs/promises';
+import { readFile, access } from 'fs/promises';
 import { join } from 'path';
 
 export async function GET() {
   try {
-    const resumePath = join(process.cwd(), 'public', 'Harshita.pdf');
+    const publicPath = join(process.cwd(), 'public');
+    const resumePdfPath = join(publicPath, 'resume.pdf');
+    const harshitaPdfPath = join(publicPath, 'Harshita.pdf');
+
+    let resumePath = harshitaPdfPath;
+    
+    try {
+      await access(resumePdfPath);
+      resumePath = resumePdfPath;
+    } catch {
+      try {
+        await access(harshitaPdfPath);
+        resumePath = harshitaPdfPath;
+      } catch {
+        throw new Error('No resume file found');
+      }
+    }
+
     const fileBuffer = await readFile(resumePath);
     
     return new NextResponse(fileBuffer, {
@@ -12,6 +29,7 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Length': fileBuffer.length.toString(),
+        'Content-Disposition': 'inline; filename="Harshita_Loomba_Resume.pdf"',
         'Cache-Control': 'public, max-age=31536000',
       },
     });
