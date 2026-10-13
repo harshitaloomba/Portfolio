@@ -1,65 +1,44 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Summary } from "@/components/summary";
-import { Education } from "@/components/education";
-import { Experience } from "@/components/experience";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
+import { Experience } from "@/components/experience";
+import { Education } from "@/components/education";
 import { Achievements } from "@/components/achievements";
-import { Leadership } from "@/components/leadership";
 import { Footer } from "@/components/footer";
-
-function SectionDivider() {
-  return (
-    <div className="max-w-4xl mx-auto px-6 py-2">
-      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-border/50 to-transparent" />
-    </div>
-  );
-}
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-sky-500/30 selection:text-sky-200">
       <Header />
-      <main className="min-h-screen bg-background text-foreground">
+      <main className="flex-1">
         <section id="about" className="scroll-mt-16">
           <Hero />
-          <SectionDivider />
+        </section>
+
+        <section id="bento" className="scroll-mt-16">
           <Summary />
         </section>
 
-        <SectionDivider />
+        <section id="projects" className="scroll-mt-16">
+          <Projects />
+        </section>
+
+        <section id="skills" className="scroll-mt-16">
+          <Skills />
+        </section>
 
         <section id="experience" className="scroll-mt-16">
           <Experience />
           <Education />
         </section>
 
-        <SectionDivider />
-
-        <section id="projects" className="scroll-mt-16">
-          <Projects />
-        </section>
-
-        <SectionDivider />
-
         <section id="achievements" className="scroll-mt-16">
           <Achievements />
         </section>
-
-        <SectionDivider />
-
-        <section id="skills" className="scroll-mt-16">
-          <Skills />
-        </section>
-
-        <SectionDivider />
-
-        <section id="leadership" className="scroll-mt-16">
-          <Leadership />
-        </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

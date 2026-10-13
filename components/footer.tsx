@@ -1,7 +1,7 @@
 "use client";
 
 import { profileData } from "@/lib/data";
-import { Mail, Github, Linkedin, ChevronUp, ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUp } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,151 +11,130 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-12 px-6 border-t border-slate-800 bg-slate-900 dark:bg-slate-950 text-slate-400 relative overflow-hidden">
-      {/* Background soft glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent/5 blur-[95px] pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          {/* Column 1: Info & Brand */}
-          <div className="flex flex-col justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-bold text-slate-100 mb-2 tracking-tight">
+    <footer className="py-14 px-4 border-t border-white/[0.06] bg-card/50 text-muted-foreground relative">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          {/* Col 1: Identity (2 cols) */}
+          <div className="md:col-span-2 space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 font-mono font-bold text-xs">
+                HL
+              </span>
+              <span className="font-bold text-base text-foreground tracking-tight">
                 {profileData.name}
-              </h3>
-              <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
-                {profileData.title}
-              </p>
+              </span>
             </div>
-            
-            {/* Social Icons */}
-            <div className="flex gap-3">
+
+            <p className="text-xs text-muted-foreground max-w-sm leading-relaxed">
+              Computer Engineering undergraduate focusing on Computer Vision architectures, data-driven systems, and modern web platforms.
+            </p>
+
+            <div className="flex gap-2.5 pt-1">
               <a
                 href={profileData.contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:text-accent hover:border-accent/40 hover:scale-105 transition-all duration-200"
+                className="p-2 rounded-xl bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/60 hover:border-sky-500/40 transition-all"
                 aria-label="GitHub Profile"
               >
-                <Github size={16} />
+                <Github size={15} />
               </a>
               <a
                 href={profileData.contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:text-accent hover:border-accent/40 hover:scale-105 transition-all duration-200"
+                className="p-2 rounded-xl bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/60 hover:border-sky-500/40 transition-all"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin size={16} />
+                <Linkedin size={15} />
               </a>
               <a
                 href={`mailto:${profileData.contact.email}`}
-                className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/50 flex items-center justify-center text-slate-300 hover:text-accent hover:border-accent/40 hover:scale-105 transition-all duration-200"
+                className="p-2 rounded-xl bg-secondary/60 hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/60 hover:border-sky-500/40 transition-all"
                 aria-label="Email Contact"
               >
-                <Mail size={16} />
+                <Mail size={15} />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Navigation Links */}
+          {/* Col 2: Navigation */}
           <div>
-            <h4 className="font-bold text-xs text-slate-300 mb-3 tracking-wider uppercase">
-              Sitemap
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground mb-3">
+              Navigation
             </h4>
-            <ul className="grid grid-cols-2 gap-x-2 gap-y-2 text-xs">
+            <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-slate-100 transition-colors duration-200">
-                  About
+                <a href="#about" className="hover:text-foreground transition-colors">
+                  About Me
                 </a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-slate-100 transition-colors duration-200">
+                <a href="#bento" className="hover:text-foreground transition-colors">
+                  Highlights
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-foreground transition-colors">
+                  Case Studies
+                </a>
+              </li>
+              <li>
+                <a href="#skills" className="hover:text-foreground transition-colors">
+                  Tech Stack
+                </a>
+              </li>
+              <li>
+                <a href="#experience" className="hover:text-foreground transition-colors">
                   Experience
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-slate-100 transition-colors duration-200">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#achievements" className="hover:text-slate-100 transition-colors duration-200">
-                  Achievements
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="hover:text-slate-100 transition-colors duration-200">
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a href="#leadership" className="hover:text-slate-100 transition-colors duration-200">
-                  Leadership
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Featured Links & Scroll Up */}
-          <div className="flex flex-col justify-between gap-6">
+          {/* Col 3: Direct Links & Back to Top */}
+          <div className="flex flex-col justify-between">
             <div>
-              <h4 className="font-bold text-xs text-slate-300 mb-3 tracking-wider uppercase">
-                Featured Profiles & Credentials
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-foreground mb-3">
+                Quick Actions
               </h4>
               <ul className="space-y-2 text-xs">
+                <li>
+                  <a
+                    href="/api/resume"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sky-400 hover:underline"
+                  >
+                    Download Resume (PDF)
+                  </a>
+                </li>
                 <li>
                   <a
                     href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_q8p7KrRxWCuCfAoaa_1753806895241_completion_certificate.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-slate-100 transition-colors duration-200 flex items-center gap-1.5"
+                    className="hover:text-foreground transition-colors"
                   >
-                    Deloitte Australia Certificate
-                    <ExternalLink size={11} className="opacity-60" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={profileData.contact.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-100 transition-colors duration-200 flex items-center gap-1.5"
-                  >
-                    GitHub Repositories
-                    <ExternalLink size={11} className="opacity-60" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={profileData.contact.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-100 transition-colors duration-200 flex items-center gap-1.5"
-                  >
-                    LinkedIn Network
-                    <ExternalLink size={11} className="opacity-60" />
+                    Deloitte Credential
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Back to Top */}
             <button
               onClick={scrollToTop}
-              className="self-start md:self-end p-2 rounded-lg bg-slate-800 border border-slate-700/50 hover:border-accent/40 text-slate-300 hover:text-slate-100 transition-all duration-200 shadow-sm flex items-center gap-1.5 text-xs font-semibold"
-              aria-label="Back to top"
+              className="mt-6 self-start inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-secondary/60 hover:bg-secondary text-foreground text-xs font-mono border border-border/60 hover:border-sky-500/40 transition-all"
             >
-              Back to Top
-              <ChevronUp size={14} className="animate-pulse" />
+              Back to Top <ArrowUp size={12} />
             </button>
           </div>
         </div>
 
-        {/* Bottom Row */}
-        <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between text-[11px] text-slate-500 gap-4">
+        {/* Bottom Credits */}
+        <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-muted-foreground">
           <p>© {currentYear} {profileData.name}. All rights reserved.</p>
-          <p>Built with Next.js & Tailwind CSS v4</p>
+          <p>Designed with Next.js & Tailwind CSS</p>
         </div>
       </div>
     </footer>

@@ -1,69 +1,105 @@
-import { experience } from "@/lib/data";
-import { Briefcase, Check } from "lucide-react";
-
-const getCompanyLogo = (company: string) => {
-  if (company.includes("AIESEC")) {
-    return (
-      <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-[#037EF3]/10 border border-[#037EF3]/30 p-1 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <span className="font-extrabold text-[#037EF3] text-[11px] tracking-wider">AIESEC</span>
-      </div>
-    );
-  }
-  return null;
-};
+import { experience, leadership } from "@/lib/data";
+import { Briefcase, Users, Check } from "lucide-react";
 
 export function Experience() {
   return (
-    <section className="py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-3 mb-16">
-          <div className="p-2 bg-accent/10 rounded-xl">
-            <Briefcase className="text-accent" size={28} />
+    <section id="experience" className="py-20 px-4 bg-background">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+          <div>
+            <p className="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400 mb-2">
+              Background & Track Record
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+              Experience & Leadership
+            </h2>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Work Experience</h2>
+          <p className="text-xs sm:text-sm text-muted-foreground max-w-md">
+            Product operations, cross-border youth exchange coordination, and data-driven performance management.
+          </p>
         </div>
 
-        <div className="relative border-l-2 border-border/80 ml-4 md:ml-8 pl-6 md:pl-10 space-y-12">
-          {experience.map((exp, index) => (
-            <div key={index} className="relative group">
-              {/* Timeline Indicator Node */}
-              <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-background border-4 border-accent group-hover:bg-accent transition-colors duration-300 z-10" />
-
-              {/* Experience Card */}
-              <div className="p-6 bg-card border border-border rounded-2xl hover:border-accent/40 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                  <div className="flex items-center gap-4">
-                    {getCompanyLogo(exp.company)}
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
-                        {exp.position}
-                      </h3>
-                      <p className="text-sky-700 dark:text-sky-400 font-bold text-sm mt-0.5">
-                        {exp.company}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {exp.location}
-                      </p>
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Column 1: Operational Experience */}
+          <div className="bento-card p-7 rounded-3xl bg-card border border-white/[0.08] relative overflow-hidden flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+                    <Briefcase size={18} />
                   </div>
-                  <span className="inline-block px-3 py-1 text-xs font-semibold text-muted-foreground bg-secondary/50 dark:bg-secondary/20 rounded-full border border-border/50 self-start md:self-auto">
-                    {exp.duration}
-                  </span>
+                  <div>
+                    <h3 className="font-bold text-base text-foreground">AIESEC in India</h3>
+                    <p className="text-xs text-sky-400 font-medium">Team Leader, Outgoing Global Volunteer</p>
+                  </div>
                 </div>
-
-                <ul className="space-y-3">
-                  {exp.description.map((desc, idx) => (
-                    <li key={idx} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
-                      <span className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check size={12} className="text-accent" />
-                      </span>
-                      <span>{desc}</span>
-                    </li>
-                  ))}
-                </ul>
+                <span className="px-3 py-1 rounded-full text-[11px] font-mono text-muted-foreground bg-secondary/60 border border-border/60">
+                  2024 — 2025
+                </span>
               </div>
+
+              <div className="text-xs font-mono text-muted-foreground mb-4">
+                Patiala, Punjab, India
+              </div>
+
+              <ul className="space-y-3">
+                {experience[0].description.map((desc, idx) => (
+                  <li key={idx} className="flex gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                    <span className="w-4 h-4 rounded-full bg-sky-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check size={10} className="text-sky-400" />
+                    </span>
+                    <span>{desc}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
+
+            <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-sky-400">
+              <span>Operational Analytics</span>
+              <span>100+ Delegates</span>
+            </div>
+          </div>
+
+          {/* Column 2: Team Leadership & Community */}
+          <div className="bento-card p-7 rounded-3xl bg-card border border-white/[0.08] relative overflow-hidden flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                    <Users size={18} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base text-foreground">AIESEC in Patiala</h3>
+                    <p className="text-xs text-amber-400 font-medium">Leadership & Talent Management</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full text-[11px] font-mono text-muted-foreground bg-secondary/60 border border-border/60">
+                  Team Leader
+                </span>
+              </div>
+
+              <div className="text-xs font-mono text-muted-foreground mb-4">
+                Thapar Institute of Engineering & Technology
+              </div>
+
+              <ul className="space-y-3">
+                {leadership[0].responsibilities.map((resp, idx) => (
+                  <li key={idx} className="flex gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                    <span className="w-4 h-4 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check size={10} className="text-amber-400" />
+                    </span>
+                    <span>{resp}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between text-xs font-mono text-amber-400">
+              <span>People Leadership</span>
+              <span>15+ Team Members</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
